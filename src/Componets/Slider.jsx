@@ -3,9 +3,11 @@ import GlobalApi from "../Services/GlobalApi";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 const screenWidth = window.innerWidth;
+
 function Slider() {
   const [movieList, setMovieList] = useState([]);
   const elementRef = useRef();
+
   useEffect(() => {
     getTrendingMovies();
   }, []);
@@ -15,15 +17,20 @@ function Slider() {
       setMovieList(resp.data.results);
     });
   };
-
+  // 1000 -> 0.43 -
   const sliderRight = (element) => {
-    element.scrollLeft += screenWidth - 110;
+    element.scrollLeft +=
+      screenWidth -
+      (screenWidth > 1000 ? screenWidth * 0.215 : screenWidth * 0.43);
   };
   const sliderLeft = (element) => {
-    element.scrollLeft -= screenWidth - 110;
+    element.scrollLeft -=
+      screenWidth -
+      (screenWidth > 1000 ? screenWidth * 0.215 : screenWidth * 0.43);
   };
+  console.log(screenWidth);
   return (
-    <div>
+    <div className="relative mx-[60px]">
       <HiChevronLeft
         className="hidden md:block text-white text-[30px] absolute
         mx-8 mt-[150px] cursor-pointer "

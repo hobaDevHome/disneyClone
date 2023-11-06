@@ -7,7 +7,7 @@ import GenreMovieList from "./Componets/GenreMovieList";
 
 function App() {
   return (
-    <div>
+    <div className="container mx-auto">
       <Header />
       <Slider />
       <ProductionHouse />
