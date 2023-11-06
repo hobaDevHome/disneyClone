@@ -9,6 +9,7 @@ import {
 } from "react-icons/hi2";
 import { HiPlus, HiDotsVertical } from "react-icons/hi";
 import HeaderItem from "./HeaderItem";
+import avatar from "../assets/Images/avatar.png";
 
 function Header() {
   const [toggle, setToggle] = useState(false);
@@ -81,11 +82,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <img
-        alt=""
-        src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
-        className="w-[40px] rounded-full"
-      />
+      <img alt="" src={avatar} className="w-[40px] rounded-full" />
     </div>
   );
 }
