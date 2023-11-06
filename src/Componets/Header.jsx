@@ -49,13 +49,15 @@ function Header() {
         />
         <div className="hidden md:flex gap-8">
           {menu.map((item) => (
-            <HeaderItem name={item.name} Icon={item.icon} />
+            <HeaderItem name={item.name} Icon={item.icon} key={item.icon} />
           ))}
         </div>
         <div className="flex md:hidden gap-5">
           {menu.map(
             (item, index) =>
-              index < 3 && <HeaderItem name={""} Icon={item.icon} />
+              index < 3 && (
+                <HeaderItem name={""} Icon={item.icon} key={item.icon} />
+              )
           )}
           <div className="md:hidden" onClick={() => setToggle(!toggle)}>
             <HeaderItem name={""} Icon={HiDotsVertical} />
@@ -67,7 +69,11 @@ function Header() {
                 {menu.map(
                   (item, index) =>
                     index > 2 && (
-                      <HeaderItem name={item.name} Icon={item.icon} />
+                      <HeaderItem
+                        name={item.name}
+                        Icon={item.icon}
+                        key={index}
+                      />
                     )
                 )}
               </div>

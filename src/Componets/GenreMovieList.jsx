@@ -8,7 +8,7 @@ function GenreMovieList() {
       {GenresList.map(
         (item, index) =>
           index <= 4 && (
-            <div className="p-8 px-8 md:px-16">
+            <div className="p-8 px-8 md:px-16" key={item.id}>
               <h2
                 className="text-[20px] text-white 
                 font-bold"

@@ -3,16 +3,17 @@ import GlobalApi from "../Services/GlobalApi";
 import MovieCard from "./MovieCard";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import HrMovieCard from "./HrMovieCard";
+
 function MovieList({ genreId, index_ }) {
   const [movieList, setMovieList] = useState([]);
   const elementRef = useRef(null);
+
   useEffect(() => {
     getMovieByGenreId();
   }, []);
 
   const getMovieByGenreId = () => {
     GlobalApi.getMovieByGenreId(genreId).then((resp) => {
-      // console.log(resp.data.results)
       setMovieList(resp.data.results);
     });
   };
@@ -41,9 +42,9 @@ function MovieList({ genreId, index_ }) {
         {movieList.map((item, index) => (
           <>
             {index_ % 3 === 0 ? (
-              <HrMovieCard movie={item} />
+              <HrMovieCard movie={item} key={index} />
             ) : (
-              <MovieCard movie={item} />
+              <MovieCard movie={item} key={index} />
             )}
           </>
         ))}

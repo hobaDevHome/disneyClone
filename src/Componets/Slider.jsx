@@ -42,6 +42,7 @@ function Slider() {
       >
         {movieList.map((item) => (
           <img
+            key={item.backdrop_path}
             alt=""
             src={IMAGE_BASE_URL + item.backdrop_path}
             className="min-w-full  md:h-[310px] object-cover
